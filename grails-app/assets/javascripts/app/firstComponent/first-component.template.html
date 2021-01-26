@@ -1,0 +1,35 @@
+<h3>{{title}}</h3>
+<br/>
+<div class="input-group input-group-sm mb-3"> 
+    <input type="text" class="form-control" 
+        placeholder="Name" 
+        aria-label="Name" 
+        aria-describedby="basic-addon1" 
+        ng-model="newPerson.name">
+</div>
+<div class="input-group input-group-sm mb-3"> 
+    <input type="text" class="form-control" 
+        placeholder="Age" 
+        aria-label="Age" 
+        aria-describedby="basic-addon1" 
+        ng-model="newPerson.age">
+</div>
+<button type="button" class="btn btn-primary" ng-click="addNewPerson()">Add Person</button>
+
+<br /><br />
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat='person in tstService'>
+          <th scope="row">{{$index + 1}}</th>
+          <td>{{person.name}}</td>
+          <td>{{person.age}}</td>
+        </tr>
+    </tbody>
+</table>
