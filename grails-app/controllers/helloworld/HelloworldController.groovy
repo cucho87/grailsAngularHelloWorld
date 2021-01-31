@@ -4,48 +4,33 @@ import grails.converters.JSON
 
 class HelloworldController {
 
+    PersonService personService
+
     def index() { 
         //render "Hello World!"
         render(view: "index")
     }
 
-    def getInfo(){
-        render(text: "{'title':'titulo1', 'author':'author1'}", contentType: "application/json");
-    }
-
-    def getSecondInfo(){
-        def persons = []
-        Persona p1 = new Persona(1, 'Alvaro', 34)
-        Persona p2 = new Persona(2, 'Carina', 34)
-        Persona p3 = new Persona(3, 'Sebastian', 35)
-        Persona p4 = new Persona(4, 'Andrea', 28)
-        persons.add(p1)
-        persons.add(p2)
-        persons.add(p3)
-        persons.add(p4)
+    def getPeople(){
+        List persons = personService.getListPeople();
         render persons as JSON
     }
-}
 
-class Persona {
-    private Number id;
-    private String name;
-    private Number age;
-
-    Persona(Number pId, String pName, Number pAge){
-        this.id = pId;
-        this.name = pName; 
-        this.age = pAge;
+    def getPersonByName(){
+        String name = params["name"]
+        List<Person> resp = personService.findPersonByName(name)
+        render resp as JSON
     }
 
-    public Number getId() {
-        return this.id;
-    }
-    public String getName() {
-        return this.name;
-    }
-    public Number getAge() {
-        return this.age;
+    def getPersonById(){
+        Long id = Long.parseLong(params["id"])
+        render personService.findById(id) as JSON
     }
 
+    def savePerson() {
+        def name = params["name"];
+        def age = Long.parseLong(params["age"]);
+        Person newPerson = personService.saveNewPerson(name, age)
+        render newPerson as JSON
+    }
 }

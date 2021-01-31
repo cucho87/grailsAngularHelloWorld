@@ -2,7 +2,7 @@ package helloworld
 
 class BootStrap {
 
-    def init = { servletContext ->
+    def init = {
     }
     def destroy = {
     }
