@@ -14,7 +14,7 @@ angular.module('myApp')
                 var deferred = $q.defer();
                 var apiMethod = 'posts';
                 
-                $http.get('http://localhost:8080/api/getSecondInfo')
+                $http.get('http://localhost:8080/api/getPeople')
                     .then(function(response) {
                         deferred.resolve(response.data);
                         people = response.data;

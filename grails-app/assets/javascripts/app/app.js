@@ -5,6 +5,8 @@
 angular.module('myApp', [
     'peopleService',
     'socialMediaService',
+    'tokenService',
+    'ethosApiService',
     'countryController',
     'firstComponent',
     'socialMediaComponent'

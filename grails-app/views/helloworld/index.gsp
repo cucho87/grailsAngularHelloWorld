@@ -15,6 +15,9 @@
 
             <hr>
             <social-media-component></social-media-component>
+
+            <hr>
+            <ethos-component></ethos-component>
         </div>
 
         <asset:javascript src="/app/lib/angular/angular.js" />

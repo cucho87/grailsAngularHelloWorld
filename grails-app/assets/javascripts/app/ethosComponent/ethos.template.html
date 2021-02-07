@@ -1,0 +1,23 @@
+<h3>{{title}}</h3>
+<br/>
+<button type="button" class="btn btn-primary" ng-click="ngShowToken()">Show Token</button>
+<button type="button" class="btn btn-primary" ng-click="onClickGetStudent()" ng-show='!showStudent'>Get Person</button>
+<button type="button" class="btn btn-primary" ng-click="onclickHideStudent()" ng-show='showStudent'>Close Person Info</button>
+
+<br>
+<div class="card" ng-show="showToken">
+    <div class="card-header">
+        Token
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{token}}</p>
+        <a href="#" class="btn btn-primary" ng-click="ngHideTokenInfo()">Close</a>
+    </div>
+</div>
+
+<br>
+
+<div class="alert alert-success" role="alert" ng-show='showStudent'>
+    <h4 class="alert-heading">Student Info!</h4>
+    <p class="mb-0">{{studentInfo.names[0].firstName}}</p>
+</div>
